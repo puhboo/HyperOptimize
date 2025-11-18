@@ -44,14 +44,10 @@ else
     resetprop debug.renderengine.backend skiaglthreaded
 fi
 
-# Vulkan Enabler for MTK, meow is actually the name of their renderer
+# Vulkan Enabler for MTK, we are not using all props for safety and removing the threading since i personally saw no difference
 if [ -f "/system/vendor/etc/permissions/android.hardware.vulkan.version-1_3.prebuilt.xml" ] && [[ $(getprop ro.build.version.sdk) -ge 33 ]]; then
     resetprop debug.hwui.renderer skiavk
-    resetprop ro.hwui.use_vulkan true
-    resetprop ro.hardware.vulkan meow
-    # resetprop debug.renderengine.graphite true
-    resetprop debug.renderengine.vulkan true
-    resetprop debug.renderengine.backend skiavkthreaded
+    resetprop debug.renderengine.backend skiavk
 else
     resetprop debug.renderengine.backend skiaglthreaded
 fi
