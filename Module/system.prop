@@ -119,30 +119,6 @@ persist.sys.gnss_back.opt=true
 
 # =================Test above=================#
 
-#################
-# 	ART | VM 	# DONE
-#################
-# dalvik.vm.backgroundgctype=HSpaceCompact
-# dalvik.vm.foreground-heap-growth-multiplier=2.5
-# dalvik.vm.gctype=CMC
-# dalvik.vm.heapgrowthlimit=512m
-# dalvik.vm.heapmaxfree=32m
-# dalvik.vm.heapminfree=512k
-# dalvik.vm.heapsize=512m
-# dalvik.vm.heapstartsize=2m
-# dalvik.vm.heaptargetutilization=0.8
-# dalvik.vm.usap_pool_enabled=true
-# dalvik.vm.usap_pool_refill_delay_ms=3000
-# dalvik.vm.usap_pool_size_max=3
-# dalvik.vm.usap_pool_size_min=1
-# dalvik.vm.usap_refill_threshold=1
-# persist.device_config.aconfig_flags.runtime_native_boot.disable_lock_profiling=true
-# persist.device_config.runtime_native_boot.enable_generational_cc=true
-# persist.device_config.runtime_native_boot.disable_lock_profiling=true
-# persist.device_config.runtime_native_boot.force_disable_uffd_gc=false
-# persist.device_config.runtime_native.usap_pool_enabled=true
-# ro.dalvik.vm.enable_uffd_gc=true
-
 #########################
 #	 Surface Flinger 	# DONE
 #########################
@@ -174,17 +150,6 @@ ro.vendor.mi_sf.enable_tp_idle_automode=true
 # Disable SF managed dynamic refresh rate
 # debug.sf.set_idle_timer_ms=0
 ro.surface_flinger.enable_frame_rate_override=false
-
-# SF cores allocation
-# ro.miui.affinity.sfre=3-6
-# ro.miui.affinity.sfui=3-7
-# ro.miui.affinity.sfuireset=0-6
-# persist.sys.miui_animator_sched.bigcores=3-6
-# persist.vendor.display.miui.composer_boost=3-7
-# persist.sys.miui_animator_sched.big_prime_cores=3-7
-# persist.sys.dexpreload.cpu_cores=0-6
-# persist.sys.dexpreload.big_prime_cores=7
-# persist.sys.dexpreload.other_cores=0-2
 
 #############################
 #	 Memory Management		#
@@ -224,22 +189,6 @@ persist.sys.stability.swapEnable=false
 # persist.sys.smartpower.memthreshold.app.lvl2=2147483646
 # persist.sys.smartpower.memthreshold.app.lvl3=2147483647
 # persist.sys.gc_booster.cloud=0
-
-# SYSTEM GC (Don't touch this, is for home app consistently stays in background)
-# persist.sys.smart_gc.enable=false
-# persist.sys.stability.gcImproveEnable.808=false
-# persist.sys.smart_gc.packages=
-
-#########################
-#	 Thermal Control 	# DONE
-#########################
-# persist.sys.enable_templimit=false
-# persist.sys.smartpower.display_thermal_temp_threshold=99
-# ro.vendor.display.hwc_thermal_dimming=false
-# ro.vendor.fps.switch.thermal=false
-# ro.vendor.thermal.dimming.enable=false
-# ro.thermal.iec.enable=false
-# ro.vendor.mi_sf.pq_thermal=false
 
 #########################
 #		 Preload 		# DONE
@@ -344,6 +293,7 @@ persist.sys.smartpower.window.enable=false
 # (default:true ) APP_STATE_ENABLE
 persist.sys.smartpower.appstate.enable=false
 
+
 ##############################
 # 		Perf Control		 # DONE
 ##############################
@@ -397,6 +347,7 @@ persist.miui.miperf.enable=false
 # Performance Hinting
 # persist.sys.enable_perf_hint=false
 
+
 ##############################
 # 			System			 # DONE
 ##############################
@@ -439,228 +390,3 @@ persist.sys.stability.reboot_days=-1
 
 # USB Display Port (which most Xiaomi doesn't have it)
 persist.vendor.usb.displayport.enabled=0
-
-##############################
-# 	Logging and Debugging	 #
-##############################
-# monitoring of window/display
-# https://github.com/raghavt20/miui-services/blob/d9e4df4bed682f316f555858588e2130611ad768/sources/com/android/server/wm/MiuiWindowMonitorImpl.java#L63
-persist.sys.stability.window_monitor.enabled=false
-
-# App hangs detection diagnostics
-persist.sys.stability.nativehang.enable=false
-
-# MIUI TCP Tracker Control
-persist.sys.miuitcptracker.ctrl=false
-
-# App Launch reporter
-persist.sys.stability.report_app_launch.enable=false
-
-# Process exit monitor
-# persist.sys.stability.enable_process_exit_monitor=false
-
-# Sentinel resource monitor
-# persist.sys.stability.enable_sentinel_resource_monitor=false
-
-# CPU exception
-persist.sys.spc.cpuexception.enabled=false
-
-# MIUI Scout (system tracing/logging)
-persist.sys.miui_scout_enable=false
-
-# Tracks F2FS filesystem usage and stats
-persist.sys.stability.f2fsTrackEnable=false
-
-# Qualcomm process hangs (ANR tracing)
-persist.sys.stability.qcom_hang_task.enable=false
-
-# Tracks thread states for stability/watchdog
-# persist.sys.stability.enable_thread_monitor=false
-
-# DMA Buffer Monitor (memory monitoring)
-# persist.sys.stability.enable_dmabuf_monitor=false
-
-# GPU profiling tools
-# graphics.gpu.profiler.support=false
-
-# 禁用 sf 事務跟蹤
-debug.sf.enable_transaction_tracing=false
-
-# MTBF
-persist.sys.debug.app.mtbf_test=false
-
-# 內存調試
-persist.sys.debug.enable_scout_memory_resume=false
-
-# 启用`scout`相关的调试功能，通过socket接口进行数据转储。通常用于开发者在特定场景下进行数据采集和分析。
-persist.sys.scout_dumpbysocket=false
-
-# vendor/etc/init/hw/init.qcom.rc
-persist.debug.trace=0
-persist.logd.diag.tcpdump=false
-persist.logd.diag.bootup=false
-persist.logd.diag.networklog=false
-persist.logd.diag.mobilelog=false
-persist.sys.qlogd=0
-
-# init.qti.kernel.rc
-persist.vendor.sys.rawdump_copy=0
-
-# histograms for system metrics and usage statistics
-ro.vendor.histogram.enable=false
-vendor.display.disable_sdr_histogram=1
-
-#LMK
-sys.lmk.reportkills=0
-persist.sys.lmk.reportkills=false
-
-# Disable Tracing
-debug.hwui.skia_atrace_enabled=false
-debug.renderengine.skia_atrace_enabled=false
-debug.hwui.skia_tracing_enabled=false
-debug.hwui.skia_use_perfetto_track_events=false
-debug.atrace.tags.enableflags=0
-debug.renderengine.skia_tracing_enabled=false
-debug.renderengine.skia_use_perfetto_track_events=false
-
-# some logs
-debug.mdpcomp.logs=0
-persist.vendor.radio.adb_log_on=0
-persist.traced.enable=0
-persist.vendor.camera.mawlog.aiasd=0
-persist.vendor.camera.mawlog.main=0
-
-# sensor event to onetrack
-persist.vendor.sensor.onetrack=false
-
-# Disable Gralloc logs
-vendor.gralloc.enable_logs=0
-
-# Disable Sensor HAL Trigger
-persist.vendor.sensors.debug.hal_trigger_crash=false
-persist.vendor.sensors.debug.hal_trigger_ssr=false
-
-# Ramdump
-persist.vendor.ssr.enable_ramdumps=0
-ro.boot.ramdump=disable
-ro.vendor.displayfeature.dump=false
-vendor.display.disable_hw_recovery_dump=1
-
-# OfflineLog
-persist.sys.offlinelog=false
-persist.sys.offlinelog.bootlog=false
-persist.sys.offlinelog.kernel=false
-persist.sys.offlinelog.logcat=false
-service.offlinelog.bootloader=false
-
-# Camera Log
-persist.vendor.camera.logstate=0
-
-# qseelogd
-persist.sys.qseelogd=false
-
-# Logd
-persist.logd.limit=Off
-persist.logd.size=0
-persist.logd.size.crash=Off
-persist.logd.size.main=0
-persist.logd.size.radio=0
-persist.logd.size.system=0
-ro.logd.size=0
-ro.logd.size.stats=0
-persist.logd.diag.newlocation=0
-logd.ready=false
-
-#Log Tags
-log.tag.stats_log=
-persist.log.tag=S
-persist.log.tag.snet_event_log=S
-
-
-# misc
-persist.sys.log_max_line=1
-persist.sys.log_time_gap_sec=65535
-persist.sys.log_filter_flag=1
-
-# vm-minidebug
-dalvik.vm.dex2oat-minidebuginfo=false
-dalvik.vm.minidebuginfo=false
-
-# SQLiteGlobal
-# debug.sqlite.journalmode=OFF
-# debug.sqlite.wal.syncmode=off
-# debug.sqlite.syncmode=off
-# debug.sqlite.wal.poolsize=8
-
-# WindowOrientationListener
-debug.orientation.log=false
-
-
-persist.vendor.connsysfw.enable=false
-persist.vendor.tcpdump.enable=false
-persist.vendor.wifisalog.enable=false
-
-# Extended Logging from OLD HyperOptimize
-profiler.force_disable_err_rpt=1
-profiler.force_disable_ulog=1
-ro.config.nocheckin=1
-ro.kernel.android.checkjni=0
-ro.kernel.checkjni=0
-dalvik.vm.checkjni=false
-debugtool.anrhistory=0
-profiler.debugmonitor=false
-profiler.launch=false
-profiler.hung.dumpdobugreport=false
-vendor.swvdec.log.level=0
-persist.vendor.dpmhalservice.loglevel=0
-persist.debug.sf.statistics=0
-debug.sf.enable_egl_image_tracker=0
-persist.ims.disableDebugLogs=1
-persist.ims.disableADBLogs=1
-persist.ims.disableQXDMLogs=1
-persist.ims.disableIMSLogs=1
-vidc.debug.level=0
-persist.radio.ramdump=0
-debug.hwc.otf=0
-debug.hwc_dump_en=0
-debug.sf.dump=0
-debug.sf.ddms=0
-av.debug.disable.pers.cache=1
-debug.egl.profiler=0
-log.shaders=0
-persist.sys.perf.debug=false
-persist.sys.ssr.enable_debug=0
-persist.traced_perf.enable=0
-persist.vendor.crash.cnt=0
-persist.vendor.crash.detect=false
-persist.vendor.sys.modem.logging.enable=false
-ersist.vendor.sys.reduce_qdss_log=1
-persist.vendor.verbose_logging_enabled=false
-persist.wpa_supplicant.debug=false
-ro.statsd.enable=false
-rw.logger=0
-sys.miui.ndcd=off
-ro.logd.disable=1
-logd.statistics=0
-ro.logd.kernel=false
-ro.logdumpd.enabled=0
-logd.logpersistd.enable=false
-persist.service.logd.enable=0
-debug.qualcomm.sns.daemon=0
-debug.qualcomm.sns.libsensor1=0
-logcat.live=disable
-vendor.vidc.debug.level=0
-persist.media.metrics.enabled=0
-media.stagefright.log-uri=0
-vendor.bluetooth.startbtlogger=false
-debug.enable.wl_log=0
-persist.vendor.radio.snapshot_enabled=0
-persist.vendor.radio.snapshot_timer=0
-ro.vendor.connsys.dedicated.log=0
-persist.data.qmi.adb_logmask=0
-persist.anr.dumpthr=0
-persist.oem.dump=0
-persist.vendor.dpm.loglevel=0
-ro.lmk.debug=false
-ro.lmk.log_stats=false
-persist.vendor.sensors.hal.log=S
