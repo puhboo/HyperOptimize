@@ -34,7 +34,6 @@ persist.bluetooth.support_page_scan_change=true
 persist.sys.gc_booster.cloud=0
 persist.sys.gc_booster.enable=false
 
-persist.sys.perfdebug.monitor.enable=0
 # persist.sys.power.default.powermode=0
 
 persist.sys.reduce_died_count_delay=5000
@@ -471,9 +470,6 @@ persist.sys.spc.cpuexception.enabled=false
 
 # MIUI Scout (system tracing/logging)
 persist.sys.miui_scout_enable=false
-
-# performance debugging monitor
-persist.sys.perfdebug.monitor.enable=false
 
 # Tracks F2FS filesystem usage and stats
 persist.sys.stability.f2fsTrackEnable=false

@@ -32,23 +32,24 @@ else
     resetprop vendor.mi.mpbe.ioturbo.enable 1
 fi
 
-# Vulkan Enabler for QCOM
+# Vulkan Enabler
 if [ -f "/system/vendor/etc/permissions/android.hardware.vulkan.version-1_3.xml" ] && [[ $(getprop ro.build.version.sdk) -ge 33 ]]; then
+    echo "QCOM found"
     resetprop debug.hwui.renderer skiavkthreaded
     resetprop ro.hwui.use_vulkan true
     resetprop ro.hardware.vulkan adreno
     # resetprop debug.renderengine.graphite true
     resetprop debug.renderengine.vulkan true
     resetprop debug.renderengine.backend skiavkthreaded
-else
-    resetprop debug.renderengine.backend skiaglthreaded
-fi
-
-# Vulkan Enabler for MTK, we are not using all props for safety and removing the threading since i personally saw no difference
-if [ -f "/system/vendor/etc/permissions/android.hardware.vulkan.version-1_3.prebuilt.xml" ] && [[ $(getprop ro.build.version.sdk) -ge 33 ]]; then
+    # Below is MTK Vulkan, skiavkthreaded doesn't make a huge difference and i felt the phone being more unstable, so i took it out 
+elif [ -f "/system/vendor/etc/permissions/android.hardware.vulkan.version-1_3.prebuilt.xml" ] && [[ $(getprop ro.build.version.sdk) -ge 33 ]]; then
+    echo "MTK Found"
     resetprop debug.hwui.renderer skiavk
+    resetprop ro.hwui.use_vulkan true
     resetprop debug.renderengine.backend skiavk
 else
-    resetprop debug.renderengine.backend skiaglthreaded
-fi
+    # if neither the xml for mtk or qcom is found, make a txt in /sdcard/ saying vulkan is disabled
+    echo "HyperOptimize didn't find any XML for vulkan therefore Vulkan was not enabled." > /sdcard/HyperOptimize.txt   
+fi;
+
 exit
