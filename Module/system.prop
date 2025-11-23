@@ -70,9 +70,6 @@ persist.sf.force_setaffinity.bigcore=0
 # persist.sys.enable_sched_gesture=false
 debug.renderengine.blur_algorithm=kawase2
 
-# Default enable MGLRU
-persist.device_config.mglru_native.lru_gen_config=all
-
 
 # AppCompact
 persist.sys.use_boot_compact=true
